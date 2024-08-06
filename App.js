@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Platform } from "react-native";
+import TabScreen from "./src/screen/TabScreen";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <TabScreen />
+      </View>
+    </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#2089dc",
+    paddingTop: Platform.OS === "android" ? 40 : 0,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
